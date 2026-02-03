@@ -1,0 +1,39 @@
+{
+  "name": "agentforge",
+  "version": "1.0.0", 
+  "description": "Autonomous AI Skill Generation for the Agent Economy",
+  "main": "agentforge-improved.ts",
+  "scripts": {
+    "start": "node agentforge-cli.js",
+    "webapp": "cd webapp && npm run dev",
+    "build": "cd webapp && npm run build",
+    "install-webapp": "cd webapp && npm install",
+    "deploy": "./deploy.sh"
+  },
+  "dependencies": {
+    "openai": "^4.26.0",
+    "@solana/web3.js": "^1.87.6", 
+    "fs-extra": "^11.2.0",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "skill-generation",
+    "openclaw", 
+    "solana",
+    "autonomous",
+    "hackathon",
+    "colosseum"
+  ],
+  "author": "AgentForge Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agentforge/hackathon-submission"
+  },
+  "bugs": {
+    "url": "https://github.com/agentforge/hackathon-submission/issues"
+  },
+  "homepage": "https://agentforge-demo.vercel.app"
+}

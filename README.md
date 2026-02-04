@@ -34,10 +34,10 @@ As AI agents become autonomous economic actors, they need the ability to **gener
 
 ### Core Components
 
-1. **Enhanced Generation Engine** (`agentforge-improved.ts`)
+1. **Enhanced Generation Engine** (Powered by Claude)
    - Multi-framework support (OpenClaw, LangChain, AutoGen)
-   - AI-powered code generation with GPT-4
-   - Template-based architecture for consistency
+   - AI-powered code generation with Claude Haiku
+   - Production-ready web API for skill generation
 
 2. **Multi-Dimensional Validation**
    - **Quality Score (0-100)**: Code structure, documentation, best practices
@@ -137,29 +137,45 @@ npm install
 
 # Set up environment
 cp .env.example .env
-# Add your OpenAI API key and Solana RPC URL
+# Add your Anthropic API key and Solana RPC URL
+# ANTHROPIC_API_KEY=your_key_here
+# SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
 ```
 
-### CLI Usage
+### API Usage (Production Ready)
 ```typescript
-import { AgentForgeEnhanced } from './agentforge-improved';
-
-const forge = new AgentForgeEnhanced({
-  openaiApiKey: process.env.OPENAI_API_KEY,
-  solanaRpcUrl: process.env.SOLANA_RPC_URL,
-  outputDir: './generated-skills'
+// Web API endpoint (powers the live demo)
+const response = await fetch('/api/generate-skill', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    description: "Create a Solana portfolio manager with Jupiter DEX integration",
+    framework: 'openclaw',
+    features: ['API Integration', 'Risk Management', 'Portfolio Tracking'],
+    complexity: 'advanced',
+    claudeModel: 'claude-3-haiku-20240307'
+  })
 });
 
-const skill = await forge.generateSkill({
-  description: "Create a Solana portfolio manager with Jupiter DEX integration",
-  framework: 'openclaw',
-  features: ['API Integration', 'Risk Management', 'Portfolio Tracking'],
-  integrations: ['solana', 'jupiter'],
-  complexity: 'advanced'
-});
-
+const skill = await response.json();
 console.log(`Generated skill: ${skill.metadata.name}`);
-console.log(`Quality Score: ${skill.validationResult.score}%`);
+console.log(`Using model: ${skill.generationStats.model}`);
+```
+
+### Direct Claude Integration
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY
+});
+
+// Generate skills using Claude (actual implementation)
+const completion = await anthropic.messages.create({
+  model: 'claude-3-haiku-20240307',
+  max_tokens: 4000,
+  messages: [{ role: 'user', content: skillPrompt }]
+});
 ```
 
 ### Web Interface

@@ -9,19 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^14.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@anthropic-ai/sdk": "^0.24.3",
+    "@heroicons/react": "^2.0.18",
     "@types/node": "^20.11.0",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
-    "typescript": "^5.3.3",
-    "tailwindcss": "^3.4.1",
     "autoprefixer": "^10.4.17",
-    "postcss": "^8.4.33",
-    "@heroicons/react": "^2.0.18",
     "framer-motion": "^11.0.3",
-    "lucide-react": "^0.323.0"
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.323.0",
+    "next": "^14.1.0",
+    "postcss": "^8.4.33",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
@@ -29,7 +31,7 @@
   },
   "keywords": [
     "ai",
-    "agents", 
+    "agents",
     "skill-generation",
     "openclaw",
     "solana",
